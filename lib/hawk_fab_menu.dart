@@ -228,35 +228,45 @@ class _MenuItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Row(
-        children: <Widget>[
-          Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-              vertical: 3,
-            ),
-            decoration: BoxDecoration(
-              color: item.labelBackgroundColor ?? Colors.white,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
+      child: Column(
+        children: [
+          Row(
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 3,
+                ),
+                decoration: BoxDecoration(
+                  color: item.labelBackgroundColor ?? Colors.white,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    bottomLeft: Radius.circular(10),
+                  ),
+                ),
+                child: Text(
+                  item.label,
+                  style: TextStyle(color: item.labelColor ?? Colors.black87),
+                ),
               ),
-            ),
-            child: Text(
-              item.label,
-              style: TextStyle(color: item.labelColor ?? Colors.black87),
-            ),
+              const SizedBox(
+                width: 2.5,
+              ),
+              SizedBox(
+                height: 50,
+                width: 50,
+                child: FloatingActionButton(
+                  onPressed: onTap,
+                  heroTag: item.heroTag ?? '_MenuItemWidget_$hashCode',
+                  shape: StadiumBorder(side: item.buttonBorder),
+                  child: item.icon,
+                  backgroundColor: item.color ?? Theme.of(context).primaryColor,
+                ),
+              ),
+            ],
           ),
-          SizedBox(
-            height: 50,
-            width: 50,
-            child: FloatingActionButton(
-              onPressed: onTap,
-              heroTag: item.heroTag ?? '_MenuItemWidget_$hashCode',
-              shape: StadiumBorder(side: item.buttonBorder),
-              child: item.icon,
-              backgroundColor: item.color ?? Theme.of(context).primaryColor,
-            ),
+          const SizedBox(
+            height: 5,
           ),
         ],
       ),
