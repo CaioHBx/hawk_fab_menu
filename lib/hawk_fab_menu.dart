@@ -46,8 +46,7 @@ class HawkFabMenu extends StatefulWidget {
   _HawkFabMenuState createState() => _HawkFabMenuState();
 }
 
-class _HawkFabMenuState extends State<HawkFabMenu>
-    with TickerProviderStateMixin {
+class _HawkFabMenuState extends State<HawkFabMenu> with TickerProviderStateMixin {
   /// To check if the menu is open
   bool _isOpen = false;
 
@@ -248,13 +247,16 @@ class _MenuItemWidget extends StatelessWidget {
               style: TextStyle(color: item.labelColor ?? Colors.black87),
             ),
           ),
-          FloatingActionButton(
-            onPressed: onTap,
-            heroTag: item.heroTag ?? '_MenuItemWidget_$hashCode',
-            mini: true,
-            shape: StadiumBorder(side: item.buttonBorder),
-            child: item.icon,
-            backgroundColor: item.color ?? Theme.of(context).primaryColor,
+          SizedBox(
+            height: 50,
+            width: 50,
+            child: FloatingActionButton(
+              onPressed: onTap,
+              heroTag: item.heroTag ?? '_MenuItemWidget_$hashCode',
+              shape: StadiumBorder(side: item.buttonBorder),
+              child: item.icon,
+              backgroundColor: item.color ?? Theme.of(context).primaryColor,
+            ),
           ),
         ],
       ),
