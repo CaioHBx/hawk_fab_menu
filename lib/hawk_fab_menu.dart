@@ -239,10 +239,7 @@ class _MenuItemWidget extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   color: item.labelBackgroundColor ?? Colors.white,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    bottomLeft: Radius.circular(10),
-                  ),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
                   item.label,
