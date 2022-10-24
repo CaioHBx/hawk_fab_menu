@@ -247,7 +247,7 @@ class _MenuItemWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 2.5,
+                width: 5,
               ),
               SizedBox(
                 height: 50,
