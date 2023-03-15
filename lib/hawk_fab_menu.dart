@@ -110,13 +110,15 @@ class _HawkFabMenuState extends State<HawkFabMenu> with TickerProviderStateMixin
     return WillPopScope(
       child: Theme(
         data: widget.theme ?? ThemeData(),
-        child: Stack(
-          children: <Widget>[
-            widget.body,
-            _isOpen ? _buildBlurWidget() : Container(),
-            _isOpen ? _buildMenuItemList() : Container(),
-            _buildMenuButton(context),
-          ],
+        child: Material(
+          child: Stack(
+            children: <Widget>[
+              widget.body,
+              _isOpen ? _buildBlurWidget() : Container(),
+              _isOpen ? _buildMenuItemList() : Container(),
+              _buildMenuButton(context),
+            ],
+          ),
         ),
       ),
       onWillPop: _preventPopIfOpen,
