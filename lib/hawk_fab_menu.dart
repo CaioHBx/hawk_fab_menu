@@ -23,8 +23,6 @@ class HawkFabMenu extends StatefulWidget {
   final BorderSide buttonBorder;
   final String? heroTag;
   final HawkFabMenuController? hawkFabMenuController;
-  final ThemeData? theme;
-
   HawkFabMenu({
     Key? key,
     required this.body,
@@ -39,7 +37,6 @@ class HawkFabMenu extends StatefulWidget {
     this.closeIcon,
     this.heroTag,
     this.hawkFabMenuController,
-    this.theme,
   }) : super(key: key) {
     assert(items.isNotEmpty);
   }
@@ -108,18 +105,13 @@ class _HawkFabMenuState extends State<HawkFabMenu> with TickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      child: Theme(
-        data: widget.theme ?? ThemeData(),
-        child: Material(
-          child: Stack(
-            children: <Widget>[
-              widget.body,
-              _isOpen ? _buildBlurWidget() : Container(),
-              _isOpen ? _buildMenuItemList() : Container(),
-              _buildMenuButton(context),
-            ],
-          ),
-        ),
+      child: Stack(
+        children: <Widget>[
+          widget.body,
+          _isOpen ? _buildBlurWidget() : Container(),
+          _isOpen ? _buildMenuItemList() : Container(),
+          _buildMenuButton(context),
+        ],
       ),
       onWillPop: _preventPopIfOpen,
     );
@@ -245,6 +237,7 @@ class _MenuItemWidget extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   color: item.labelBackgroundColor ?? Colors.white,
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
                   item.label,
