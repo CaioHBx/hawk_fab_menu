@@ -201,15 +201,11 @@ class _HawkFabMenuState extends State<HawkFabMenu> with TickerProviderStateMixin
     return Positioned(
       bottom: 10,
       right: 10,
-      child: Theme(
-        data: ThemeData(useMaterial3: true),
-        child: FloatingActionButton(
-          child: iconWidget,
-          heroTag: widget.heroTag ?? '_HawkFabMenu_$hashCode',
-          backgroundColor: widget.fabColor ?? Theme.of(context).primaryColor,
-          onPressed: _toggleMenu,
-          shape: StadiumBorder(side: widget.buttonBorder),
-        ),
+      child: FloatingActionButton(
+        child: iconWidget,
+        heroTag: widget.heroTag ?? '_HawkFabMenu_$hashCode',
+        backgroundColor: widget.fabColor ?? Theme.of(context).primaryColor,
+        onPressed: _toggleMenu,
       ),
     );
   }
@@ -249,7 +245,6 @@ class _MenuItemWidget extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   color: item.labelBackgroundColor ?? Colors.white,
-                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
                   item.label,
@@ -262,15 +257,11 @@ class _MenuItemWidget extends StatelessWidget {
               SizedBox(
                 height: 50,
                 width: 50,
-                child: Theme(
-                  data: ThemeData(useMaterial3: true),
-                  child: FloatingActionButton(
-                    onPressed: onTap,
-                    heroTag: item.heroTag ?? '_MenuItemWidget_$hashCode',
-                    shape: StadiumBorder(side: item.buttonBorder),
-                    child: item.icon,
-                    backgroundColor: item.color ?? Theme.of(context).primaryColor,
-                  ),
+                child: FloatingActionButton(
+                  onPressed: onTap,
+                  heroTag: item.heroTag ?? '_MenuItemWidget_$hashCode',
+                  child: item.icon,
+                  backgroundColor: item.color ?? Theme.of(context).primaryColor,
                 ),
               ),
             ],
