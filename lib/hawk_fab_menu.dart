@@ -255,12 +255,15 @@ class _MenuItemWidget extends StatelessWidget {
               SizedBox(
                 height: 50,
                 width: 50,
-                child: FloatingActionButton(
-                  onPressed: onTap,
-                  heroTag: item.heroTag ?? '_MenuItemWidget_$hashCode',
-                  shape: StadiumBorder(side: item.buttonBorder),
-                  child: item.icon,
-                  backgroundColor: item.color ?? Theme.of(context).primaryColor,
+                child: Theme(
+                  data: ThemeData(useMaterial3: true),
+                  child: FloatingActionButton(
+                    onPressed: onTap,
+                    heroTag: item.heroTag ?? '_MenuItemWidget_$hashCode',
+                    shape: StadiumBorder(side: item.buttonBorder),
+                    child: item.icon,
+                    backgroundColor: item.color ?? Theme.of(context).primaryColor,
+                  ),
                 ),
               ),
             ],
