@@ -193,9 +193,10 @@ class _HawkFabMenuState extends State<HawkFabMenu> with TickerProviderStateMixin
     return Positioned(
       bottom: 10,
       right: 10,
-      child: SizedBox(
+      child: Container(
         height: 50,
         width: 50,
+        margin: const EdgeInsets.only(right: 4),
         child: FloatingActionButton(
           child: iconWidget,
           heroTag: widget.heroTag ?? '_HawkFabMenu_$hashCode',
@@ -251,10 +252,9 @@ class _MenuItemWidget extends StatelessWidget {
               const SizedBox(
                 width: 5,
               ),
-              Container(
+              SizedBox(
                 height: 50,
                 width: 50,
-                margin: const EdgeInsets.only(right: 4),
                 child: FloatingActionButton(
                   onPressed: onTap,
                   heroTag: item.heroTag ?? '_MenuItemWidget_$hashCode',
