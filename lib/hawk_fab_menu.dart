@@ -251,9 +251,10 @@ class _MenuItemWidget extends StatelessWidget {
               const SizedBox(
                 width: 5,
               ),
-              SizedBox(
+              Container(
                 height: 50,
                 width: 50,
+                margin: const EdgeInsets.only(right: 4),
                 child: FloatingActionButton(
                   onPressed: onTap,
                   heroTag: item.heroTag ?? '_MenuItemWidget_$hashCode',
