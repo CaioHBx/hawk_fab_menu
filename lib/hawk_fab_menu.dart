@@ -193,11 +193,15 @@ class _HawkFabMenuState extends State<HawkFabMenu> with TickerProviderStateMixin
     return Positioned(
       bottom: 10,
       right: 10,
-      child: FloatingActionButton(
-        child: iconWidget,
-        heroTag: widget.heroTag ?? '_HawkFabMenu_$hashCode',
-        backgroundColor: widget.fabColor ?? Theme.of(context).primaryColor,
-        onPressed: _toggleMenu,
+      child: SizedBox(
+        height: 50,
+        width: 50,
+        child: FloatingActionButton(
+          child: iconWidget,
+          heroTag: widget.heroTag ?? '_HawkFabMenu_$hashCode',
+          backgroundColor: widget.fabColor ?? Theme.of(context).primaryColor,
+          onPressed: _toggleMenu,
+        ),
       ),
     );
   }
