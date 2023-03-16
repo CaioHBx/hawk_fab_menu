@@ -199,6 +199,7 @@ class _HawkFabMenuState extends State<HawkFabMenu> with TickerProviderStateMixin
         margin: const EdgeInsets.only(right: 4),
         child: FloatingActionButton(
           tooltip: 'Menu',
+          elevation: 0,
           child: iconWidget,
           heroTag: widget.heroTag ?? '_HawkFabMenu_$hashCode',
           backgroundColor: widget.fabColor ?? Theme.of(context).primaryColor,
