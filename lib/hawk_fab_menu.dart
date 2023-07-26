@@ -6,7 +6,10 @@ import 'dart:ui' as ui;
 /// Used to toggle the menu from other than the dedicated button.
 class HawkFabMenuController {
   late Function toggleMenu;
-  HawkFabMenuController();
+  final Function? closeMenu;
+  HawkFabMenuController({
+    this.closeMenu,
+  });
 }
 
 /// Wrapper that builds a FAB menu on top of [body] in a [Stack]
@@ -72,6 +75,7 @@ class _HawkFabMenuState extends State<HawkFabMenu> with TickerProviderStateMixin
 
     if (widget.hawkFabMenuController != null) {
       widget.hawkFabMenuController!.toggleMenu = _toggleMenu;
+      widget.hawkFabMenuController!.closeMenu = _closeMenu;
     }
   }
 
@@ -91,6 +95,14 @@ class _HawkFabMenuState extends State<HawkFabMenu> with TickerProviderStateMixin
     } else {
       _iconAnimationCtrl.reverse();
     }
+  }
+
+  /// Closes the menu
+  void _closeMenu() {
+    setState(() {
+      _isOpen = false;
+    });
+    _iconAnimationCtrl.reverse();
   }
 
   /// If the menu is open and the device's back button is pressed then menu gets closed instead of going back.
