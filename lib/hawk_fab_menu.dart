@@ -6,10 +6,8 @@ import 'dart:ui' as ui;
 /// Used to toggle the menu from other than the dedicated button.
 class HawkFabMenuController {
   late Function toggleMenu;
-  final Function? closeMenu;
-  HawkFabMenuController({
-    this.closeMenu,
-  });
+  late Function closeMenu;
+  HawkFabMenuController();
 }
 
 /// Wrapper that builds a FAB menu on top of [body] in a [Stack]
