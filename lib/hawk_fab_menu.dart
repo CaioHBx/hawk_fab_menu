@@ -242,7 +242,7 @@ class _MenuItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: item.enabled ? onTap : null,
       child: Column(
         children: [
           Row(
@@ -312,6 +312,8 @@ class HawkFabMenuItem {
   /// The tag to apply to the button's [Hero] widget.
   String? heroTag;
 
+  bool enabled;
+
   HawkFabMenuItem({
     required this.label,
     required this.ontap,
@@ -321,5 +323,6 @@ class HawkFabMenuItem {
     this.labelBackgroundColor,
     this.labelColor,
     this.heroTag,
+    this.enabled = true,
   });
 }
