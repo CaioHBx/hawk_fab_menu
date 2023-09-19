@@ -253,7 +253,7 @@ class _MenuItemWidget extends StatelessWidget {
                   vertical: 3,
                 ),
                 decoration: BoxDecoration(
-                  color: item.labelBackgroundColor ?? Colors.white,
+                  color: item.enabled ? (item.labelBackgroundColor ?? Colors.white) : Theme.of(context).disabledColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
@@ -269,10 +269,10 @@ class _MenuItemWidget extends StatelessWidget {
                 width: 50,
                 child: FloatingActionButton(
                   elevation: 0,
-                  onPressed: onTap,
+                  onPressed: item.enabled ? onTap : null,
                   heroTag: item.heroTag ?? '_MenuItemWidget_$hashCode',
                   child: item.icon,
-                  backgroundColor: item.color ?? Theme.of(context).primaryColor,
+                  backgroundColor: item.enabled ? (item.color ?? Theme.of(context).primaryColor) : Theme.of(context).disabledColor,
                 ),
               ),
             ],
