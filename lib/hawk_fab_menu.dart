@@ -245,40 +245,37 @@ class _MenuItemWidget extends StatelessWidget {
       onTap: item.enabled ? onTap : null,
       child: Column(
         children: [
-          Tooltip(
-            message: item.enabled == false ? 'Sem permissão' : null,
-            child: Row(
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 3,
-                  ),
-                  decoration: BoxDecoration(
-                    color: item.enabled ? (item.labelBackgroundColor ?? Colors.white) : Theme.of(context).disabledColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(
-                    item.label,
-                    style: TextStyle(color: item.labelColor ?? Colors.black87),
-                  ),
+          Row(
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 3,
                 ),
-                const SizedBox(
-                  width: 5,
+                decoration: BoxDecoration(
+                  color: item.enabled ? (item.labelBackgroundColor ?? Colors.white) : Theme.of(context).disabledColor,
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                SizedBox(
-                  height: 50,
-                  width: 50,
-                  child: FloatingActionButton(
-                    elevation: 0,
-                    onPressed: item.enabled ? onTap : null,
-                    heroTag: item.heroTag ?? '_MenuItemWidget_$hashCode',
-                    child: item.icon,
-                    backgroundColor: item.enabled ? (item.color ?? Theme.of(context).primaryColor) : Theme.of(context).disabledColor,
-                  ),
+                child: Text(
+                  item.label,
+                  style: TextStyle(color: item.labelColor ?? Colors.black87),
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              SizedBox(
+                height: 50,
+                width: 50,
+                child: FloatingActionButton(
+                  elevation: 0,
+                  onPressed: item.enabled ? onTap : null,
+                  heroTag: item.heroTag ?? '_MenuItemWidget_$hashCode',
+                  child: item.icon,
+                  backgroundColor: item.enabled ? (item.color ?? Theme.of(context).primaryColor) : Theme.of(context).disabledColor,
+                ),
+              ),
+            ],
           ),
           const SizedBox(
             height: 5,
